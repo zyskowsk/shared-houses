@@ -1,0 +1,26 @@
+<table class="table statements">
+	<tr>
+		<td></td>
+		<th>Paid</th>
+		<th>Recieves</th>
+	</tr>
+	<% statements_recieve(@month).each do |stat| %>
+	<tr class="recieve">
+		<th><%= Mate.find(stat.mate_id).name %></th>
+		<td>$ <%= stat.spent_this_month.round(2)%></td>
+		<td>$ <%= stat.due_this_month.abs.round(2)%>
+	</tr>
+	<% end %>
+	<tr>
+		<td></td>
+		<th>Paid</th>
+		<th>Owes</th>
+	</tr>
+	<% statements_pay(@month).each do |stat| %>
+	<tr class="owe">
+		<th><%= Mate.find(stat.mate_id).name %></th>
+		<td>$ <%= stat.spent_this_month.round(2)%></td>
+		<td>$ <%= stat.due_this_month.round(2)%>
+	</tr>
+	<% end %>
+</table>

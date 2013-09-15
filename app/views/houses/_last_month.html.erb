@@ -1,0 +1,24 @@
+<h4>Last Month</h4>
+<table class ="table">
+		<tr>
+			<th>Spent</th>
+			<td>$
+				 <% if Month.all.empty? %>
+					<%= 0.0%>
+				  <% else %>
+					<%= Month.all.last.total_spent.round(2) %>
+				  <% end %>
+			</td>
+		</tr>
+		<tr>
+			<th>Paid</th>
+			<td>$
+				 <% if Month.all.empty? %>
+					<%= 0.0%>
+				  <% else %>
+					<%= Month.all.last.each_pay.round(2) %>
+				  <% end %>
+			</td>
+			
+		</tr>
+</table>

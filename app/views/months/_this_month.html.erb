@@ -1,0 +1,12 @@
+<h3> Summary </h3>
+<table class= 'table'>
+	<tr>
+		<th>Total Spent</th>
+		<td> $<%= @month.total_spent.round(2) %></td>
+	</tr>
+	<tr>
+		<th>Due This Month</th>
+		<td>$<%= @month.each_pay.round(2) %></td>
+	</tr>
+	<tr></tr>
+</table>

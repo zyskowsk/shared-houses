@@ -1,0 +1,11 @@
+<h4>Current</h4>
+<table class="table" >
+	<tr>
+		<th>Spent</th>
+		<td>$ <%= current_house.total_spent.round(2) %></td>
+	</tr>
+	<tr>
+		<th>Due </th>
+		<td>$ <%= ( current_house.total_spent / number_of_mates ).round(2) %></td>
+	</tr>
+</table>

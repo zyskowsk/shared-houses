@@ -1,0 +1,9 @@
+<h3>This month you 
+			<%= owes_currently(@mate) > 0 ? "owe" : "will recieve "%> </h3>
+<table class="table">
+	<tr>
+		<th>
+			$ <%=owes_currently(@mate).abs.round(2) %> 
+		</th>
+	</tr>
+</table>

@@ -1,0 +1,29 @@
+<table class="table table-striped">
+	<tr>
+		<th>Housemate</th>
+		<th>Purchased</th>
+		<th>At </th>
+		<th>For</th>
+		<th>On</th>
+	</tr>
+<% if @house.items.where(:current => true).empty? %>
+	<tr>
+		<td>No Current Purchases</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+<% end %>
+<% for item in @house.items %>
+	<% if item.current? %>
+	<tr> 
+		<td><%= item.name %></td>
+		<td><%= item.description %></td>
+		<td><%= item.location %></td> 
+		<td>$<%= item.cost.round(2) %></td>
+		<td><%= item.created_at.strftime("%m.%d.%y")%></td>
+	</tr>
+	<% end %>
+<% end %>
+</table>

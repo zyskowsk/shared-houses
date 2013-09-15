@@ -1,0 +1,7 @@
+<%= form_for @need, :html => { :class => "form-inline center to_buy" } do |f| %>
+	<%= f.text_field :description, :class => "input-small to_buy", 
+								   :placeholder => "what do you want?" %>
+	<%= f.hidden_field :house_id %>
+	<%= f.submit "add", :action => :create,
+						:class => "btn btn-info"%>
+<% end %>

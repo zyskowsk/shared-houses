@@ -1,0 +1,77 @@
+<div class="container">
+	<h1><%= @house.address%> | <%=@house.city%></h2>
+	<div class="row">
+		<div class="span3">
+			<%= render 'current_month'%>
+		</div>
+		<div class="span3">
+			</table>
+			<%= render 'last_month'%>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span3">
+			<%= form_tag needs_delete_many_path do %>
+				<h3>
+					Shopping List 
+					<%= submit_tag "Delete", 
+									:class => "btn-mini btn pull-right btn-danger" %>
+				</h3>
+				<table class="table to_buy">
+					<% if @house.needs.empty? %>
+						<tr>
+							<td>
+								Nothing Currently Needed
+							</td>
+						</tr>
+					<% end %>
+							<% for need in @house.needs %>
+								<tr>
+									<td>
+										<%= check_box_tag "need_ids[]", need.id%>
+										<%= need.description %>
+									</td>
+								</tr>
+							<% end %>
+				</table>
+				<div class="accordion-group">
+				   <div class="accordion-heading">
+				      <a class="accordion-toggle btn btn-warning height" data-toggle="collapse" href="#collapseOne_to_buy">
+						Add something!  
+				      </a>
+			    <% end %>
+				    </div>
+				    <div id="collapseOne_to_buy" class="accordion-body collapse">
+				      <div class="to_buy accordion-inner">
+				        <%= render 'tobuy_form'%>
+				      </div>
+				    </div>
+				  </div>
+		</div>
+		<div class="span9">
+			<div id="recent_purchases">
+				<h3> Recent Purchases </h3>
+				<%= render 'recent_purchases_list'%>
+				<% if mate_signed_in? %>
+					<div class="accordion" id="accordion2">
+					  <div class="accordion-group">
+					    <div class="accordion-heading radius">
+					      <a class="accordion-toggle btn btn-warning height" data-toggle="collapse" href="#collapseOne">
+							  Add a Purchase
+					      </a>
+					    </div>
+					    <div id="collapseOne" class="accordion-body collapse">
+					      <div class="accordion-inner">
+					        <%= render 'recent_purchases_form'%>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+				<% end %>
+			</div>
+		
+	</div>
+</div>
+
+
+			

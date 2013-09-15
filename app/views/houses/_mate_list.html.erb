@@ -1,0 +1,6 @@
+<% for mate in @house.mates do%>
+	<p>
+		<%= link_to mate.name,mate_path(mate) %>
+	</p>
+	
+<% end %>

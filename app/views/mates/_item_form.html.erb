@@ -1,0 +1,16 @@
+<%= form_for @item, :html => { :class => "form-inline center" } do |f| %>
+	<%= f.text_field :description , :class => "input-small", 
+									:placeholder => "Purchase"%>
+	<%= f.text_field :location, :class => "input-small", 
+								:placeholder => "Store" %>
+	<%= f.text_field :cost, :class => "input-small", 
+							:placeholder => "Cost" %>
+	<%= f.hidden_field :house_id %>
+	<%= f.hidden_field :mate_id %>
+	<%= f.hidden_field :name %>
+	<%= f.hidden_field :createdonmatepage %>
+	<%= f.hidden_field :current %>
+	<%= f.submit "submit", :action => :create,
+						   :class => "btn btn-info"%>
+
+<% end %>

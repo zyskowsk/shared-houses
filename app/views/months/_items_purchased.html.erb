@@ -1,0 +1,42 @@
+<h3>Purchases</h3>
+<table class="table table-striped">
+	<tr>
+		<th>Housemate</th>
+		<th>Purchased</th>
+		<th>At </th>
+		<th>For</th>
+		<th>On</th>
+	</tr>
+	<% for item in @month.items %>
+	<tr> 
+		<td><%= item.name %></td>
+		<td><%= item.description %></td>
+		<td><%= item.location %></td> 
+		<td>$<%= item.cost.round(2) %></td>
+		<td><%= item.created_at.strftime("%m.%d.%y")%></td>
+	</tr>
+	<% end %>
+	<tr class="white">
+		<th class="blue">Total</th>
+		<td></td>
+		<td></td>
+		<td>$ <%= @month.total_spent.round(2) %></td>
+		<td></td>
+	</tr>
+	<tr class="white">
+		<th class="no-border"></th>
+		<td class="no-border"></td>
+		<td class="no-border"></td>
+		<td class="no-border green"><i>&divide; <%= number_of_mates %> Housemates</i></td>
+		<td class="no-border"></td>
+	</tr>
+	<tr class="white">
+		<th class="no-border blue">We Each Pay</th>
+		<td class="no-border"></td>
+		<td class="no-border"></td>
+		<td id="thick-border">$ <%= @month.each_pay.round(2) %></td>
+		<td class="no-border"></td>
+	</tr>
+		
+</table>
+

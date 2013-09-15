@@ -1,0 +1,7 @@
+<%= form_for @mate do |f| %> 
+	<p><%= f.label "Name" %>
+	   <%= f.text_field :name %>
+	   <%= f.hidden_field :house_id %>
+   </p>
+   <%= f.submit "Submit", :action => :create %>
+<% end %>

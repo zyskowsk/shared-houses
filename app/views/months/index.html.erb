@@ -1,0 +1,9 @@
+
+<div class="row">
+	<div class= "span12 index">
+		<h3>All Statements</h3>
+		<% current_house.months.each do |month|%>
+			<%= link_to month.created_at.strftime("%m.%d.%y"), month_path(month.id) %></br>
+		<% end %>
+	</div>
+</div>

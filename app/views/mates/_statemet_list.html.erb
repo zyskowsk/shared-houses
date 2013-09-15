@@ -1,0 +1,70 @@
+<h3>Statements</h3>
+<table class="table">
+	<tr>
+		<th> You Owe </th>
+		<th> Ammount </th>
+		<th> Statement Date </th>
+		<th></th>
+	</tr>
+	<% if @mate.transactions.where(paid: false).empty? %>
+	<tr>
+		<td>
+			You don't owe any money currently
+		</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<% end %>
+	<% @mate.transactions.each do |trans| %>
+		<% unless trans.paid? %>
+		<tr class="owe">
+			<td><%= trans.reciever %></td>
+			<td>$<%= trans.amount%> </td>
+			<td><%= link_to Month.find(trans.month_id).created_at.strftime("%m.%d.%y"), 
+						 month_path(trans.month_id) %></td>
+						 
+			<% if current_mate == Mate.find(trans.mate_id) %>
+			 <td><%= link_to 'paid', transaction_path(trans.id), method: :put %></td>
+			 <% else %>
+			 <td></td>
+			<% end %>
+		</tr>
+		<% end %>
+	<% end %>
+</table>
+
+<table class="table">
+	<tr>
+		<th> Owes You </th>
+		<th> Ammount </th>
+		<th> Statement Date </th>
+		<th></th>
+	</tr>
+	<% if Transaction.where(paid: false, reciever: @mate.name).empty? %>
+	<tr>
+		<td>
+			You are not owed any money currently
+		</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<% end %>
+	<% Transaction.where(reciever: @mate.name).each do |trans| %>
+		<% unless trans.paid? %>
+		<tr class="recieve">
+			<td><%= trans.payer %></td>
+			<td>$<%= trans.amount%> </td>
+			<td><%= link_to Month.find(trans.month_id).created_at.strftime("%m.%d.%y"), 
+						 month_path(trans.month_id) %></td>
+						 
+			<% if current_mate == Mate.find(trans.mate_id) %>
+			 <td><%= link_to 'paid', transaction_path(trans.id), method: :put %></td>
+			<% else %>
+			 <td></td>
+			<% end %>
+		</tr>
+		<% end %>
+	<% end %>
+</table>

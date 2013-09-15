@@ -1,0 +1,24 @@
+<table class="table table-striped">
+	<tr>
+		<th>Item</th>
+		<th>Purchased At</th>
+		<th>Cost </th>
+		<th>Date</th>
+		<% if current_mate == @mate %>
+		<th></th>
+		<% end %>
+	</tr>
+<% for item in @mate.items do%>
+	<% if item.current? %>
+		<tr> 
+			<td><%= item.description %></td>
+			<td><%= item.location %></td> 
+			<td>$<%= item.cost.round(2) %></td>
+			<td><%= item.created_at.strftime("%m.%d.%y")%></td>
+ 		   <% if current_mate == @mate %>
+ 		   	<td><%= link_to "delete", item, method: :delete %></td>
+ 		   <% end %>
+		</tr>
+	<% end %>
+<% end %>
+</table>

@@ -1,0 +1,12 @@
+<table class="table transactions">
+	<tr>
+		<td class="no-border"><h3>Payements Due</h3></td>
+		<th class="no-border">Ammount</th>
+	</tr>
+	<% @month.transactions.each do |trans| %>
+		<tr>
+			<td><%= trans.payer %> owes <%= trans.reciever %></td> 
+			<td>$ <%= trans.amount.round(2) %></td>
+		</tr>
+	<% end %>
+</table>

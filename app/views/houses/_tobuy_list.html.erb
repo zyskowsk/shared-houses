@@ -1,0 +1,12 @@
+<table class="table">
+	<%= form_tag needs_delete_many_path do %>
+		<% for need in @house.needs %>
+			<tr>
+				<td>
+					<%= check_box_tag "need_ids[]", need.id%>
+					<%= need.description %>
+				</td>
+			</tr>
+		<% end %>
+	<% end %>
+</table>
