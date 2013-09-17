@@ -13,7 +13,7 @@ who owes who what.
 To build this app I used Ruby on Rails, as well as Devise for authentication and
 Twitter Bootstrap, and JQuery for styling and UI.
 
-Deployed using Heroku at: [www.sharedhous.es](http://sharedhous.es)
+Deployed using Heroku at: [www.sharedhous.es](http://www.sharedhous.es)
 
 ### Want to Try it?
 sign in as a demo user
