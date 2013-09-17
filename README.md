@@ -18,5 +18,12 @@ Deployed using Heroku at: [www.sharedhous.es](http://www.sharedhous.es)
 ### Want to Try it?
 sign in as a demo user
 
-<strong>Username:</string> demo_user<br>
+House login:
+
+<strong>Address:</string> 123 Demo St.<br>
+<strong>Password:</string> password
+
+User Login:
+
+<strong>Address:</string> demo_user<br>
 <strong>Password:</string> password
