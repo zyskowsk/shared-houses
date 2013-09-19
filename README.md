@@ -25,5 +25,5 @@ House login:
 
 User Login:
 
-<strong>Address:</string> demo_user<br>
+<strong>Email:</string> demo@user.com<br>
 <strong>Password:</string> password
