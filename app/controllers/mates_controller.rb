@@ -30,7 +30,7 @@ class MatesController < ApplicationController
     notice: "#{@mate.name} is
              #{@mate.admin ? "now an admin" : "no longer an admin" }"
 
-    redirect_to edit_house_registration_path, 
+    redirect_to edit_house_registration_path 
   end
   
   def destroy
