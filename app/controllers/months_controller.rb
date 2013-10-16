@@ -16,9 +16,11 @@ class MonthsController < ApplicationController
   
   def create
     set_mate_accounts(each_pay)
-    @month = Month.new(each_pay: each_pay,
-                       total_spent: current_house.total_spent,
-                       house_id: current_house.id) 
+    @month = Month.new(
+      each_pay: each_pay,
+      total_spent: current_house.total_spent,
+      house_id: current_house.id
+    ) 
     @month.save
     
     create_statements(@month)

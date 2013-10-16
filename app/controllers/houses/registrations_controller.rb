@@ -1,18 +1,12 @@
 class Houses::RegistrationsController < Devise::RegistrationsController 
-  
-  def new
-    super
-  end
-  
-  protected
 
-      def after_update_path_for(resource)
-        house_path(current_house)
-      end
+  protected
+    def after_update_path_for(resource)
+      house_path(current_house)
+    end
       
-      def after_sign_up_path_for(resource)
-        new_mate_registration_path
-      end
-  
+    def after_sign_up_path_for(resource)
+      new_mate_registration_path
+    end  
 end
   

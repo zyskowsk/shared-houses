@@ -21,11 +21,13 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @mate = @item.mate
     @item.destroy
+
     redirect_to mate_path(@mate)
   end
   
   def delete_many
     Item.destroy_all(:id => params[:item_ids])
+    
     redirect_to house_path(current_house)
   end
   

@@ -14,21 +14,23 @@ class MatesController < ApplicationController
   
   def show 
     @mate = Mate.find(params[:id])
-    @item = Item.new(mate_id: @mate.id,
-                    house_id: @mate.house.id,
-                    createdonmatepage: true,
-                    name: @mate.name,
-                    current: true)
-
+    @item = Item.new(
+      mate_id: @mate.id,
+      house_id: @mate.house.id,
+      createdonmatepage: true,
+      name: @mate.name,
+      current: true
+    )
   end
   
   def update 
     @mate = Mate.find(params[:id])
     @mate.admin = !@mate.admin
     @mate.save
-    redirect_to edit_house_registration_path, 
     notice: "#{@mate.name} is
              #{@mate.admin ? "now an admin" : "no longer an admin" }"
+
+    redirect_to edit_house_registration_path, 
   end
   
   def destroy
@@ -37,6 +39,7 @@ class MatesController < ApplicationController
     @mate.current_use = false
     @mate.save 
     flash[:success] = "#{@mate_name} deleted"
+
     redirect_to house_path(current_house)
   end
   
@@ -52,6 +55,4 @@ class MatesController < ApplicationController
         notice: "You are not signed in to that house!" unless 
         current_house.mates.include?(Mate.find(params[:id]))
     end
-    
-  
 end

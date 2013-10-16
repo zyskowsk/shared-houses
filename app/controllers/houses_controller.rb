@@ -8,13 +8,15 @@ class HousesController < ApplicationController
   
   def show
     @house = params[:id] ? House.find(params[:id]) : current_house
-    # Cant get before filter to work
+
     @mate = Mate.new(house_id: current_house.id)
-    @item = Item.new(house_id: current_house.id, 
-                     createdonmatepage: false,
-                     current: true)
     @need = Need.new(house_id: current_house.id)
     @month = Month.new
+    @item = Item.new(
+      house_id: current_house.id, 
+      createdonmatepage: false,
+      current: true
+    )
   end
   
   private
